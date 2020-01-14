@@ -8,7 +8,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'News App',
-      home: TabsPage(),
+      home: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: TabsPage(),
+      ),
       theme: ThemeData(primaryColor: Colors.black),
     );
   }

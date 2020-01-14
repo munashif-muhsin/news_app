@@ -11,14 +11,6 @@ class HeadlineWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    String dateString = '';
-    dateString += story.publishedDate.day.toString();
-    dateString += '/' + story.publishedDate.month.toString();
-    dateString += '/' + story.publishedDate.year.toString();
-    dateString += ' ' + story.publishedDate.hour.toString();
-    dateString += ':' + story.publishedDate.minute.toString();
-
-
     return  Container(
         padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
         constraints: BoxConstraints(minHeight: 100),
@@ -43,7 +35,7 @@ class HeadlineWidget extends StatelessWidget {
                   width: MediaQuery.of(context).size.width - 120,
                   child: Text(
                     story.title,
-                    maxLines: 3,
+                    maxLines: 2,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -55,14 +47,13 @@ class HeadlineWidget extends StatelessWidget {
                   width: MediaQuery.of(context).size.width - 120,
                   child: Text(
                   story.description,
-                  maxLines: 2,
+                  maxLines: 3,
                   style: TextStyle(
-                    fontSize: 10,
-                    color: Colors.black38,
+                    fontSize: 12,
+                    color: Colors.black54,
                   ),
                 )
                 ),
-                
               ],
             )
           ],
