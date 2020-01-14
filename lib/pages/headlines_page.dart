@@ -12,7 +12,6 @@ class HeadlinesPage extends StatefulWidget {
 class _HeadlinesPageState extends State<HeadlinesPage>
     with AutomaticKeepAliveClientMixin {
   TextEditingController _editingController = TextEditingController();
-  String _searchText;
   bool _showCancel = false;
   bool _shouldAutoRefresh= false;
   HeadlinesBloc _headlinesBloc = HeadlinesBloc();
@@ -69,6 +68,7 @@ class _HeadlinesPageState extends State<HeadlinesPage>
               setState(() {
                 _shouldAutoRefresh = value;
               });
+              _headlinesBloc.toggleAutoUpdate(_editingController.text.isEmpty ? null : _editingController.text);
             },
             value: _shouldAutoRefresh,
             activeColor: Colors.white,
