@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/headlines_page.dart';
 
 class TabsPage extends StatefulWidget {
   @override
@@ -13,9 +14,7 @@ class _TabsPageState extends State<TabsPage> {
       child: Scaffold(
         body: TabBarView(
           children: <Widget>[
-            Container(
-              color: Colors.red,
-            ),
+            HeadlinesPage(),
             Container(
               color: Colors.yellow,
             )

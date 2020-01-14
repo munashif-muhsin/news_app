@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'News App',
       home: TabsPage(),
+      theme: ThemeData(primaryColor: Colors.black),
     );
   }
 }
