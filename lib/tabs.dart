@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/headlines_page.dart';
+import 'package:news_app/pages/headlines_page.dart';
+import 'package:news_app/pages/iot_page.dart';
 
 class TabsPage extends StatefulWidget {
   @override
@@ -15,9 +16,7 @@ class _TabsPageState extends State<TabsPage> {
         body: TabBarView(
           children: <Widget>[
             HeadlinesPage(),
-            Container(
-              color: Colors.yellow,
-            )
+            IOTPage(),
           ],
         ),
         bottomNavigationBar: SafeArea(
