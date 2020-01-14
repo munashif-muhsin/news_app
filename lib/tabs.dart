@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news_app/pages/headlines_page.dart';
 import 'package:news_app/pages/iot_page.dart';
 
@@ -37,12 +38,13 @@ class _TabsPageState extends State<TabsPage> {
               tabs: <Widget>[
                 Tab(
                   icon: Icon(
-                    Icons.accessibility_new,
+                    FontAwesomeIcons.listUl,
+                    size: 20,
                   ),
                 ),
                 Tab(
                   icon: Icon(
-                    Icons.account_balance,
+                    FontAwesomeIcons.chartBar,
                   ),
                 )
               ],

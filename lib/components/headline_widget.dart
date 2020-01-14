@@ -20,7 +20,7 @@ class HeadlineWidget extends StatelessWidget {
 
 
     return  Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
         constraints: BoxConstraints(minHeight: 100),
         child: Row(
           children: <Widget>[

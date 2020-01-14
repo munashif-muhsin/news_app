@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:news_app/modal/interest_per_day.dart';
 
 class IOTPage extends StatefulWidget {
   @override
@@ -51,8 +52,4 @@ class _IOTPageState extends State<IOTPage> {
   }
 }
 
-class InterestPerDay {
-  final String day;
-  final int hits;
-  InterestPerDay(this.day, this.hits);
-}
+

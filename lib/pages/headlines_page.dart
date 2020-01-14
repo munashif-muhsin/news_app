@@ -35,7 +35,7 @@ class _HeadlinesPageState extends State<HeadlinesPage>
         ],
       ),
       body: ListView.builder(
-        padding: EdgeInsets.only(top: 20),
+        padding: EdgeInsets.only(top: 10),
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
           return _buildHeadlineItem(index);
