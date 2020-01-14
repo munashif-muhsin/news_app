@@ -16,6 +16,7 @@ class _IOTPageState extends State<IOTPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Container(
           child: TextField(
@@ -45,6 +46,7 @@ class _IOTPageState extends State<IOTPage> {
               icon: Icon(Icons.cancel),
               onPressed: () {
                 _editingController.clear();
+                FocusScope.of(context).requestFocus(FocusNode());
                 setState(() {
                   _showCancel = false;
                 });
@@ -85,5 +87,11 @@ class _IOTPageState extends State<IOTPage> {
 
   void _refreshFeed(String text) {
     _timeBloc.getData(text);
+  }
+
+  @override
+  void dispose() {
+    _timeBloc.dispose();
+    super.dispose();
   }
 }

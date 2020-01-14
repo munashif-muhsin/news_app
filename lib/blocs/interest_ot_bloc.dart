@@ -64,4 +64,7 @@ class InterestOverTimeBloc {
       data: rearrangedChartData,
     );
   }
+  dispose() {
+    _iotStreamController.close();
+  }
 }

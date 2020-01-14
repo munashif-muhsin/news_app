@@ -22,6 +22,12 @@ class _HeadlinesPageState extends State<HeadlinesPage>
     _refreshFeed(null);
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    _headlinesBloc.dispose();
+  }
+
   void _refreshFeed(String text) {
     _headlinesBloc.refreshFeed(text);
   }

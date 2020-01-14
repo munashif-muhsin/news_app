@@ -44,4 +44,8 @@ class HeadlinesBloc {
       _headlinesController.addError(e);
     }
   }
+
+  dispose() {
+    _headlinesController.close();
+  }
 }
