@@ -36,7 +36,6 @@ class InterestOverTimeBloc {
       'Sunday'
     ];
     headlines.forEach((item) {
-      print(item.publishedDate.weekday);
       hitsPerDay[item.publishedDate.weekday - 1] =
           hitsPerDay[item.publishedDate.weekday - 1] + 1;
     });

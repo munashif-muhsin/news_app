@@ -48,7 +48,7 @@ class NewsService {
       String endDate = DateTime.now().toIso8601String();
       String url = APIs.serverURL +
           APIs.everything +
-          '?q=$topic&apiKey=${APIs.apiKey}&from=$startDate&end=$endDate';
+          '?q=$topic&apiKey=${APIs.apiKey}&from=$startDate&end=$endDate&pageSize=100';
       final response = await http.get(url);
       final jsonData = (json.decode(response.body))['articles'];
       return _createHeadlineList(jsonData);
