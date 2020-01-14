@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:news_app/blocs/interest_ot_bloc.dart';
 import 'package:news_app/modal/interest_per_day.dart';
 
 class IOTPage extends StatefulWidget {
@@ -8,26 +9,9 @@ class IOTPage extends StatefulWidget {
 }
 
 class _IOTPageState extends State<IOTPage> {
-  List<charts.Series<InterestPerDay, String>> _createChartData() {
-    final data = [
-      InterestPerDay('Monday', 100),
-      InterestPerDay('Tuesday', 90),
-      InterestPerDay('Wednesday', 70),
-      InterestPerDay('Thursday', 50),
-      InterestPerDay('Friday', 45),
-      InterestPerDay('Saturday', 30),
-      InterestPerDay('Sunday', 5),
-    ];
-
-    return [
-      charts.Series<InterestPerDay, String>(
-          id: 'InterestPerDay',
-          colorFn: (_, __) => charts.MaterialPalette.black,
-          domainFn: (InterestPerDay item, _) => item.day,
-          measureFn: (InterestPerDay item, _) => item.hits,
-          data: data)
-    ];
-  }
+  InterestOverTimeBloc _timeBloc = InterestOverTimeBloc();
+  TextEditingController _editingController = TextEditingController();
+  bool _showCancel = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +19,16 @@ class _IOTPageState extends State<IOTPage> {
       appBar: AppBar(
         title: Container(
           child: TextField(
+            controller: _editingController,
+            onEditingComplete: () {
+              FocusScope.of(context).requestFocus(FocusNode());
+              if (_editingController.text.isNotEmpty) {
+                _refreshFeed(_editingController.text);
+                setState(() {
+                  _showCancel = true;
+                });
+              }
+            },
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
@@ -43,13 +37,53 @@ class _IOTPageState extends State<IOTPage> {
             ),
           ),
         ),
+        actions: <Widget>[
+          AnimatedOpacity(
+            opacity: _showCancel ? 1 : 0,
+            duration: Duration(milliseconds: 200),
+            child: IconButton(
+              icon: Icon(Icons.cancel),
+              onPressed: () {
+                _editingController.clear();
+                setState(() {
+                  _showCancel = false;
+                });
+              },
+            ),
+          ),
+        ],
       ),
       body: Container(
         padding: EdgeInsets.all(20),
-        child: charts.BarChart(_createChartData(), animate: true, vertical: false,),
+        child: StreamBuilder<charts.Series<InterestPerDay, String>>(
+          stream: _timeBloc.iotStream,
+          initialData: null,
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (_editingController.text.isEmpty) {
+              return Center(
+                child: Text('Enter a topic to show graph'),
+              );
+            }
+            if(snapshot.data == null) {
+              return Center(child: CircularProgressIndicator(),);
+            }
+            if (snapshot.hasData) {
+              return charts.BarChart(
+                [snapshot.data],
+                animate: true,
+                vertical: false,
+              );
+            }
+            return Center(
+              child: Text('Something went wrong. Please try again later'),
+            );
+          },
+        ),
       ),
     );
   }
+
+  void _refreshFeed(String text) {
+    _timeBloc.getData(text);
+  }
 }
-
-
