@@ -1,16 +1,22 @@
 # news_app
 
-A new Flutter project.
+A Flutter Project to display headlines from NewsAPI for a a particular Search Term
+
+## Features
+
+- Show All headlines while starting up the app
+- Search for a topic and view headlines
+- Auto Refresh button to enable the feed to be refreshed every 30 seconds
+- Show a graph of number of articles published on a per day basis over the past 7 days of the week for the term searched.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Use the official Flutter docs to setup flutter on your computer.
+   https://flutter.dev/docs/get-started/install
+2. Run “flutter pub get” in the project directory.
+3. Run “flutter run” to view on a simulator/emulator or device.
 
-A few resources to get you started if this is your first Flutter project:
+## Debug APK File
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Use the following link to download the test apk file.
+https://drive.google.com/open?id=1qPYjVFUqnACEmhUQjsKbqoReAaEegASD
