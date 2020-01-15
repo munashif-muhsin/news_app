@@ -67,7 +67,7 @@ class _IOTPageState extends State<IOTPage> {
               );
             }
             if(snapshot.data == null) {
-              return Center(child: CircularProgressIndicator(),);
+              return Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.black),),);
             }
             if (snapshot.hasData) {
               return charts.BarChart(

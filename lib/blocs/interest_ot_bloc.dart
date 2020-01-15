@@ -52,7 +52,7 @@ class InterestOverTimeBloc {
     List<InterestPerDay> rearrangedChartData = [];
     DateTime today = DateTime.now();
     rearrangedChartData.addAll(
-      chartData.sublist(today.weekday - 1, 6),
+      chartData.sublist(today.weekday - 1, 7),
     );
     rearrangedChartData.addAll(chartData.sublist(0, today.weekday));
 

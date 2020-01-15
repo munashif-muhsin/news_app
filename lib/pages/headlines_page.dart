@@ -89,7 +89,7 @@ class _HeadlinesPageState extends State<HeadlinesPage>
           List<Headline> headlines;
           if (snapshot.connectionState == ConnectionState.waiting || snapshot.data == null) {
             return Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.black),),
             );
           }
           if (snapshot.hasData) {
