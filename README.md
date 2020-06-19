@@ -16,6 +16,12 @@ A Flutter Project to display headlines from NewsAPI for a a particular Search Te
 2. Run “flutter pub get” in the project directory.
 3. Run “flutter run” to view on a simulator/emulator or device.
 
+## Screenshots
+
+![alt text](https://github.com/munashif-muhsin/news_app/blob/master/screenshots/home.png?raw=true)
+![alt text](https://github.com/munashif-muhsin/news_app/blob/master/screenshots/home%20with%20search%20text.png?raw=true)
+![alt text](https://github.com/munashif-muhsin/news_app/blob/master/screenshots/graph.png?raw=true)
+
 ## Debug APK File
 
 Use the following link to download the test apk file.
